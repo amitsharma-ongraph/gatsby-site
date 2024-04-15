@@ -22,7 +22,6 @@ export const useRecepie = () => {
       }
     }
   `);
-  console.log(data);
   return {
     getAllRecepies: () => data.allContentfulRecepie.nodes,
   };

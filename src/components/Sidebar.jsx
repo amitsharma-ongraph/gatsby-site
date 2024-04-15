@@ -2,13 +2,7 @@ import { Grid, GridItem, Icon } from "@chakra-ui/react";
 import { Link } from "gatsby";
 import React from "react";
 import { HiX } from "react-icons/hi";
-import {
-  BiHomeHeart,
-  BiInfoCircle,
-  BiLogOutCircle,
-  BiMessage,
-  BiTag,
-} from "react-icons/bi";
+import { BiHomeHeart, BiInfoCircle, BiMessage, BiTag } from "react-icons/bi";
 import SidebarOption from "./SidebarOption";
 import Logo from "./Logo";
 
@@ -80,11 +74,7 @@ function Sidebar({ onClose }) {
       </GridItem>
       <GridItem>
         <Grid autoFlow="row" rowGap={1} px={4}>
-          <GridItem>
-            <SidebarOption icon={BiLogOutCircle} path={"/logout"}>
-              Log out
-            </SidebarOption>
-          </GridItem>
+          <GridItem></GridItem>
           {/* Buffers */}
           <GridItem />
           <GridItem />

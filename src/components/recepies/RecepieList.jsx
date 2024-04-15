@@ -3,7 +3,6 @@ import React from "react";
 import RecepieCard from "./RecepieCard";
 
 function RecepieList({ recepies, title }) {
-  console.log("list recepies---->", recepies);
   return (
     <Box px={10} py={10}>
       <Heading as="h2" size="md" mb={4}>

@@ -12,11 +12,11 @@ import {
 } from "@chakra-ui/react";
 import React, { useEffect } from "react";
 import Logo from "./Logo";
-import { BiHelpCircle } from "react-icons/bi";
 import { navigate } from "gatsby";
 import { HiMenu } from "react-icons/hi";
 import Sidebar from "./Sidebar";
 import { useLocation } from "@reach/router";
+import { BiFace } from "react-icons/bi";
 
 function Header() {
   const { pathname } = useLocation();
@@ -51,36 +51,15 @@ function Header() {
       </GridItem>
       <GridItem>
         <Grid autoFlow="column" placeItems="center" columnGap={4}>
-          {[
-            {
-              text: "Support",
-              icon: <BiHelpCircle />,
-              path: "/about",
-            },
-          ].map(({ text, icon, path }, i) => (
-            <GridItem key={`header-link-${i}`} pt={1}>
-              <Button
-                variant="link"
-                leftIcon={icon}
-                color="gray.900"
-                fontWeight={500}
-                _focus={{}}
-                _hover={{}}
-                _active={{}}
-                onClick={() => navigate(path)}
-              >
-                {text}
-              </Button>
-            </GridItem>
-          ))}
-          <GridItem display={{ base: "none", md: "block" }}>
+          <GridItem display={{ base: "block", md: "block" }}>
             <Avatar
               name={"user@gmail.com"}
               size="sm"
-              onClick={() => navigate("/contact")}
+              onClick={() => navigate("/profile")}
               bgColor="brand.800"
               color="white"
               cursor="pointer"
+              icon={<BiFace />}
             />
           </GridItem>
           <GridItem display={{ base: "block", lg: "none" }}>

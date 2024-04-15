@@ -8,7 +8,6 @@ import slugify from "slugify";
 
 function RecepieCard({ recepie }) {
   const { image, title, prepTime, cookTime, description } = recepie;
-  console.log("description", description?.description);
   const imagePath = getImage(image);
   const slug = slugify(title, { lower: true });
   return (
@@ -41,7 +40,12 @@ function RecepieCard({ recepie }) {
               transition={"ease-in-out"}
               backdropFilter={"blur(10px)"}
               padding={4}
-              overflow={"hidden"}
+              overflow={"scroll"}
+              sx={{
+                "&::-webkit-scrollbar": {
+                  display: "none",
+                },
+              }}
             >
               <Text
                 textAlign={"center"}
