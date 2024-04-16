@@ -2,6 +2,7 @@ import React, { useState, useEffect, createContext } from "react";
 import { Flex, Center, Icon, Stack, Text, CloseButton } from "@chakra-ui/react";
 import { FiCheckCircle, FiXCircle } from "react-icons/fi";
 import { AnimatePresence, motion } from "framer-motion";
+import { navigate } from "gatsby";
 
 var timeout;
 
@@ -16,6 +17,12 @@ const NotificationProvider = ({ children }) => {
       timeout = setTimeout(() => {
         setNotification(null);
       }, 5000);
+    }
+  }, [notification]);
+
+  useEffect(() => {
+    if (notification && notification.path) {
+      navigate(notification.path);
     }
   }, [notification]);
 

@@ -21,9 +21,6 @@ function Signup() {
     e.preventDefault();
     const res = await signUp({ email, password, confirmPassword });
     setNotification(res);
-    if (res.type === "success") {
-      navigate("/profile");
-    }
   };
 
   return (

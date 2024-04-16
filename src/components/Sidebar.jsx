@@ -2,14 +2,21 @@ import { Grid, GridItem, Icon } from "@chakra-ui/react";
 import { Link } from "gatsby";
 import React from "react";
 import { HiX } from "react-icons/hi";
-import { BiHomeHeart, BiInfoCircle, BiMessage, BiTag } from "react-icons/bi";
+import {
+  BiBadgeCheck,
+  BiHomeHeart,
+  BiInfoCircle,
+  BiMessage,
+  BiTag,
+} from "react-icons/bi";
+import { MdRestaurantMenu } from "react-icons/md";
 import SidebarOption from "./SidebarOption";
 import Logo from "./Logo";
 
 const options = [
   {
-    icon: BiHomeHeart,
-    children: "Home",
+    icon: BiBadgeCheck,
+    children: "Featured",
     path: "/",
   },
   {
@@ -18,14 +25,14 @@ const options = [
     path: "/tags/",
   },
   {
+    icon: MdRestaurantMenu,
+    children: "MyRecepies",
+    path: "/personal-recepies/",
+  },
+  {
     icon: BiInfoCircle,
     children: "About",
     path: "/about/",
-  },
-  {
-    icon: BiMessage,
-    children: "Contact",
-    path: "/contact/",
   },
 ];
 

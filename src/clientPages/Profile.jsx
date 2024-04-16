@@ -19,8 +19,6 @@ const Profile = () => {
   const { user, logOut, loading } = useUser();
   const [notification, setNotification] = useNotification();
 
-  console.log("auth state--->", authState);
-
   if (!authState.isLoading && !authState.userId) {
     navigate("/login");
   }
@@ -63,10 +61,22 @@ const Profile = () => {
             <Text mt={4} fontSize="lg">
               {user?.email}
             </Text>
-            <Button mt={4} colorScheme="gray">
+            <Button
+              mt={4}
+              colorScheme="gray"
+              onClick={() => {
+                navigate("/personal-recepies");
+              }}
+            >
               Recipes
             </Button>
-            <Button mt={4} colorScheme="gray">
+            <Button
+              mt={4}
+              colorScheme="gray"
+              onClick={async () => {
+                setNotification(await logOut());
+              }}
+            >
               Logout
             </Button>
           </Box>

@@ -24,5 +24,28 @@ export const useRecepie = () => {
   `);
   return {
     getAllRecepies: () => data.allContentfulRecepie.nodes,
+    getTags: () => {
+      const recepies = data.allContentfulRecepie.nodes;
+      const tags = new Map();
+      recepies.forEach((recepie) => {
+        recepie.content.tags.forEach((tag) => {
+          if (tags.has(tag)) {
+            tags.set(tag, tags.get(tag) + 1);
+          } else {
+            tags.set(tag, 1);
+          }
+        });
+      });
+
+      const tagsArray = [];
+      tags.keys().forEach((tag) => {
+        tagsArray.push({
+          name: tag,
+          count: tags.get(tag),
+        });
+      });
+
+      return tagsArray;
+    },
   };
 };

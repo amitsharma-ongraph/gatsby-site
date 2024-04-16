@@ -10,7 +10,7 @@ export default function Home({ data }) {
 
   return (
     <Layout>
-      <RecepieList recepies={recepies} title="All Recepies" />
+      <RecepieList recepies={recepies} title="Featured Recepies" />
     </Layout>
   );
 }

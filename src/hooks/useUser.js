@@ -27,23 +27,20 @@ export const useUser = () => {
     })();
   }, [authState.userId]);
 
-  useEffect(() => {
-    console.log("user--->", user);
-  }, [user]);
-
   return {
     user,
     loading,
     async signUp(options) {
       try {
         setLoading(true);
-        if (options.password !== options.confirmPassword)
+        if (options.password !== options.confirmPassword) {
+          setLoading(false);
           return {
             type: "error",
             title: "Passwords are not equal",
             description: "Please ensure your passwords are the same",
           };
-
+        }
         const { user: __user } = await createUserWithEmailAndPassword(
           auth,
           options.email,
@@ -62,10 +59,9 @@ export const useUser = () => {
           type: "success",
           title: "Account created",
           description: "You have succesfully created an account",
-          path: "/app/",
+          path: "/profile",
         };
       } catch (e) {
-        console.log(e);
         setLoading(false);
         return {
           type: "error",

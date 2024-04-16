@@ -42,7 +42,6 @@ function Header() {
       <GridItem>
         <Box
           display={{ base: "block", lg: "none" }}
-          // offsets lack of border on sidebar
           borderRight="1px solid"
           borderRightColor="white"
         >

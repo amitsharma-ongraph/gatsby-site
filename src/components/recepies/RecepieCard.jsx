@@ -1,4 +1,4 @@
-import { Box, Flex, Heading, Icon, Text } from "@chakra-ui/react";
+import { Box, Flex, Heading, Icon, Image, Text } from "@chakra-ui/react";
 import { Link } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import React from "react";
@@ -7,11 +7,20 @@ import { IoTimerOutline } from "react-icons/io5";
 import slugify from "slugify";
 
 function RecepieCard({ recepie }) {
-  const { image, title, prepTime, cookTime, description } = recepie;
+  const {
+    image,
+    title,
+    prepTime,
+    cookTime,
+    description,
+    isPersonal,
+    productId,
+  } = recepie;
   const imagePath = getImage(image);
   const slug = slugify(title, { lower: true });
+
   return (
-    <Link to={`/${slug}`}>
+    <Link to={`/${!isPersonal ? slug : `personal-recepie/${productId}`}`}>
       <Box
         width={"100%"}
         bgColor={"brand.50"}
@@ -23,14 +32,18 @@ function RecepieCard({ recepie }) {
             display: "block",
           },
         }}
+        minHeight={"100px"}
       >
         <Flex direction={"column"} alignItems={"center"} paddingBottom={2.5}>
-          <Box width={"100%"} position={"relative"}>
-            <GatsbyImage
-              image={imagePath}
-              style={{ height: "100%", width: "100%" }}
-              alt=""
-            />
+          <Box width={"100%"} minHeight={"200px"} position={"relative"}>
+            {!isPersonal && (
+              <GatsbyImage
+                image={imagePath}
+                style={{ height: "100%", width: "100%" }}
+                alt=""
+              />
+            )}
+            {isPersonal && <Image src={image}></Image>}
             <Box
               position={"absolute"}
               bottom={"0px"}

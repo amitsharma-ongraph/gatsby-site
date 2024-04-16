@@ -1,4 +1,4 @@
-import { Box, Grid, Heading } from "@chakra-ui/react";
+import { Box, Flex, Grid, Heading } from "@chakra-ui/react";
 import React from "react";
 import RecepieCard from "./RecepieCard";
 
@@ -15,6 +15,16 @@ function RecepieList({ recepies, title }) {
           </Box>
         ))}
       </Grid>
+      {(!recepies || recepies.length == 0) && (
+        <Flex
+          height={"100px"}
+          width={"100%"}
+          justifyContent={"center"}
+          alignItems={"center"}
+        >
+          <h2>No recepies</h2>
+        </Flex>
+      )}
     </Box>
   );
 }

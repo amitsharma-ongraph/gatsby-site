@@ -34,8 +34,7 @@ function RecepiePage({ data }) {
         <Flex justifyContent="space-between" alignItems="flex-start" mb={6}>
           <Box
             display="grid"
-            gridTemplateColumns={{ base: "1fr", md: "1fr 1fr" }} // On small screens, it's one column; on medium screens, it's two columns
-            gap={6} // Gap between grid items
+            gridTemplateColumns={{ base: "1fr", md: "1fr 1fr" }}
             justifyItems={"center"}
           >
             <Box
