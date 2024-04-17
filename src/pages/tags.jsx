@@ -21,6 +21,7 @@ function Tags() {
         >
           {tags.map((tag) => (
             <Box
+              key={tag.name}
               as="flex"
               justifyContent={"center"}
               alignItems={"center"}

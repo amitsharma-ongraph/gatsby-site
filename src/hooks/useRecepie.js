@@ -38,13 +38,12 @@ export const useRecepie = () => {
       });
 
       const tagsArray = [];
-      tags.keys().forEach((tag) => {
+      tags.forEach((value, key) => {
         tagsArray.push({
-          name: tag,
-          count: tags.get(tag),
+          name: key,
+          count: value,
         });
       });
-
       return tagsArray;
     },
   };
